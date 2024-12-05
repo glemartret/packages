@@ -23,6 +23,9 @@ public class PathProviderPlugin: NSObject, FlutterPlugin, PathProviderApi {
   }
 
   func getDirectoryPath(type: DirectoryType) -> String? {
+    #if os(tvOS)
+      return FileManager.SearchPathDirectory.cachesDirectory
+    #endif
     var path = getDirectory(ofType: fileManagerDirectoryForType(type))
     #if os(macOS)
       // In a non-sandboxed app, these are shared directories where applications are
