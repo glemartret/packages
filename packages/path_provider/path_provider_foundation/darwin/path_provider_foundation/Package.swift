@@ -10,6 +10,7 @@ let package = Package(
   name: "path_provider_foundation",
   platforms: [
     .iOS("12.0"),
+    .tvOS("15.0"),
     .macOS("10.14"),
   ],
   products: [

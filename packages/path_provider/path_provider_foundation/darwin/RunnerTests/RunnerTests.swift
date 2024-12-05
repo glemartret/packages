@@ -6,7 +6,7 @@ import XCTest
 
 @testable import path_provider_foundation
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
   import Flutter
 #elseif os(macOS)
   import FlutterMacOS
