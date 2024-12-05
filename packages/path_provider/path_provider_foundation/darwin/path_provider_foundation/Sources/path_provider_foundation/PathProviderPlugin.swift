@@ -24,7 +24,7 @@ public class PathProviderPlugin: NSObject, FlutterPlugin, PathProviderApi {
 
   func getDirectoryPath(type: DirectoryType) -> String? {
     #if os(tvOS)
-      return FileManager.SearchPathDirectory.cachesDirectory
+      return getDirectory(ofType: FileManager.SearchPathDirectory.cachesDirectory)
     #endif
     var path = getDirectory(ofType: fileManagerDirectoryForType(type))
     #if os(macOS)
