@@ -23,11 +23,11 @@ public class PathProviderPlugin: NSObject, FlutterPlugin, PathProviderApi {
   }
 
   func getDirectoryPath(type: DirectoryType) -> String? {
-    #if os(tvOS)
-      return getDirectory(ofType: FileManager.SearchPathDirectory.cachesDirectory)
-    #endif
     var path = getDirectory(ofType: fileManagerDirectoryForType(type))
-    #if os(macOS)
+
+    #if os(tvOS)
+      path = getDirectory(ofType: FileManager.SearchPathDirectory.cachesDirectory)
+    #elseif os(macOS)
       // In a non-sandboxed app, these are shared directories where applications are
       // expected to use its bundle ID as a subdirectory. (For non-sandboxed apps,
       // adding the extra path is harmless).
