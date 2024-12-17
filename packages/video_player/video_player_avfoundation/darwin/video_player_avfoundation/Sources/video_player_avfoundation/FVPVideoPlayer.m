@@ -126,6 +126,7 @@ static void *rateContext = &rateContext;
   };
 
   _player = [avFactory playerWithPlayerItem:item];
+  _player.automaticallyWaitsToMinimizeStalling = YES;
   _player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
 
   // This is to fix 2 bugs: 1. blank video for encrypted video streams on iOS 16
