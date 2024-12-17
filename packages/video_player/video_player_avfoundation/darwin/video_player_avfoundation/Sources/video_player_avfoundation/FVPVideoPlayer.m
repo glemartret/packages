@@ -125,6 +125,8 @@ static void *rateContext = &rateContext;
     }
   };
 
+  item.preferredForwardBufferDuration = 10;
+
   _player = [avFactory playerWithPlayerItem:item];
   _player.automaticallyWaitsToMinimizeStalling = YES;
   _player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
